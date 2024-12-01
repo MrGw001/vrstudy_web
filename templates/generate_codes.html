@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/generate_codes.css">
+    <title>VRStudy - Генерация кодов</title>
+</head>
+<body>
+    <header>
+        <h1>VRStudy - Генерация кодов</h1>
+        <div class="user-info">
+            <!-- <p>{{ user.firstname }} {{ user.lastname }}</p> -->
+        </div>
+        <nav class="nav-buttons">
+            <a href="{{ url_for('dashboard') }}" class="nav-button">Панель управления</a> <!-- Кнопка Панель управления -->
+            <a href="{{ url_for('generate_codes') }}" class="nav-button">Генерация кодов</a>
+            <a href="#" class="nav-button">Классы</a>
+            <a href="#" class="nav-button">Информация о версии</a>
+        </nav>
+    </header>
+    <main>
+        <form method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Пол</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody id="inputs-container">
+                    <tr class="input-group" data-index="0">
+                        <td class="number">1.</td>
+                        <td><input type="text" name="firstname" placeholder="Имя" required></td>
+                        <td><input type="text" name="lastname" placeholder="Фамилия" required></td>
+                        <td>
+                            <select name="gender" required>
+                                <option value="">Пол</option>
+                                <option value="муж">Мужской</option>
+                                <option value="жен">Женский</option>
+                            </select>
+                        </td>
+                        <td><button type="button" class="remove-button">-</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="add-button">Добавить поле</button>
+            <br><br>
+            <label for="class">Выберите класс:</label>
+            <select name="class" required>
+                <option value="5А">5А</option>
+                <option value="5Б">5Б</option>
+                <option value="6А">6А</option>
+                <option value="6Б">6Б</option>
+                <option value="7А">7А</option>
+                <option value="7Б">7Б</option>
+                <option value="7В">7В</option>
+                <option value="8А">8А</option>
+                <option value="9А">9А</option>
+            </select>
+            <button type="submit">Сгенерировать</button>
+        </form>
+    </main>
+
+    <script>
+        let index = 1; // Начинаем с 1 для первого поля
+
+        document.querySelector('.add-button').addEventListener('click', function() {
+            const container = document.getElementById('inputs-container');
+            index++; // Увеличиваем индекс для следующего поля
+            const inputGroup = document.createElement('tr');
+            inputGroup.classList.add('input-group');
+            inputGroup.setAttribute('data-index', index);
+
+            inputGroup.innerHTML = `
+                <td class="number">${index}.</td>
+                <td><input type="text" name="firstname" placeholder="Имя" required></td>
+                <td><input type="text" name="lastname" placeholder="Фамилия" required></td>
+                <td>
+                    <select name="gender" required>
+                        <option value="">Пол</option>
+                        <option value="муж">Мужской</option>
+                        <option value="жен">Женский</option>
+                    </select>
+                </td>
+                <td><button type="button" class="remove-button">-</button></td>
+            `;
+
+            // Добавляем обработчик на удаление
+            inputGroup.querySelector('.remove-button').addEventListener('click', function() {
+                container.removeChild(inputGroup);
+                updateIndices(); // Обновляем индексы после удаления
+            });
+
+            container.appendChild(inputGroup);
+        });
+
+        function updateIndices() {
+            const allGroups = document.querySelectorAll('.input-group');
+            if (allGroups.length === 0) {
+                index = 1; // Сбрасываем индекс если все группы удалены
+            } else {
+                allGroups.forEach((group, i) => {
+                    group.querySelector('.number').textContent = i + 1; // Обновляем номера
+                    group.setAttribute('data-index', i + 1); // Обновляем атрибут data-index
+                });
+                index = allGroups.length + 1; // Устанавливаем индекс для следующего добавления
+            }
+        }
+
+        // Инициализация для первой кнопки удаления
+        document.querySelector('.remove-button').addEventListener('click', function() {
+            const container = document.getElementById('inputs-container');
+            const firstGroup = container.querySelector('.input-group');
+            container.removeChild(firstGroup);
+            updateIndices(); // Обновляем индексы после удаления
+        });
+    </script>
+</body>
+</html>

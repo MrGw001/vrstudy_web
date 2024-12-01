@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>VRStudy - Панель управления</title>
+</head>
+<body>
+    <header>
+        <h1>VRStudy - Панель управления</h1>
+        <div class="user-info">
+            <!-- <p>{{ user.firstname }} {{ user.lastname }}</p> -->
+        </div>
+        <nav class="nav-buttons">
+            <a href="{{ url_for('dashboard') }}" class="nav-button">Панель управления</a> <!-- Кнопка Панель управления -->
+            <a href="{{ url_for('generate_codes') }}" class="nav-button">Генерация кодов</a>
+            <a href="#" class="nav-button">Классы</a>
+            <a href="#" class="nav-button">Информация о версии</a>
+        </nav>
+    </header>
+    <main>
+        <h2 class="welcome-message">Добро пожаловать, {{ user.firstname }} {{ user.lastname }}!</h2>
+    </main>
+</body>
+</html>
