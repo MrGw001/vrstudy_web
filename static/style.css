@@ -1,0 +1,170 @@
+
+
+.nav-buttons {
+    display: flex; 
+    justify-content: center; /* Центрирование кнопок навигации */
+    gap: 15px; 
+    margin-top: 10px; /* Отступ сверху для кнопок */
+}
+
+.nav-button {
+    background-color: #88C0D0; 
+    color: #2E3440; /* Цвет текста на кнопках */
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.nav-button:hover {
+    background-color: #A3BE8C; /* Цвет кнопки при наведении */
+}
+
+/* Стиль для формы авторизации */
+.login-container {
+    background-color: #3B4252; /* Фон формы */
+    padding: 30px; /* Увеличены отступы для формы */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тень для формы */
+    width: 300px; /* Ширина формы */
+    margin: 0 auto; /* Центрирование формы */
+    position: absolute; /* Чтобы форма была по центру */
+    top: 50%; /* Половина высоты экрана */
+    left: 50%; /* Половина ширины экрана */
+    transform: translate(-50%, -50%); /* Центрирование формы */
+}
+
+h2 {
+    text-align: center; /* Центрирование заголовка */
+    margin-bottom: 20px; /* Отступ снизу заголовка */
+}
+
+.input-group {
+    margin-bottom: 15px; /* Отступ между полями ввода */
+}
+
+label {
+    display: block; /* Выход за пределы блока */
+    margin-bottom: 5px; /* Отступ между меткой и полем */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Ширина поля ввода */
+    padding: 10px; /* Отступ внутри поля */
+    border: 1px solid #4C566A; /* Граница */
+    border-radius: 5px; /* Скругление углов */
+    background-color: #434C5E; /* Светлый цвет фона для полей */
+    color: #EDEFF0; /* Цвет текста в полях */
+    box-sizing: border-box; /* Учитываем внутренние отступы в размере */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #88C0D0; /* Цвет границы при фокусировке */
+    outline: none; /* Убираем обводку при фокусировке */
+}
+
+.login-button {
+    width: 100%; /* Ширина кнопки */
+    padding: 10px; /* Отступ внутри кнопки */
+    background-color: #88C0D0; /* Цвет кнопки */
+    color: #2E3440; /* Цвет текста на кнопке */
+    border: none;
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.login-button:hover {
+    background-color: #A3BE8C; /* Цвет кнопки при наведении */
+}
+
+.main-content {
+    text-align: center; /* Центрирование контента */
+}
+
+.welcome-message {
+    text-align: center; /* Выравнивание по центру */
+    font-size: 24px; /* Размер шрифта */
+    margin: 20px 0; /* Отступы верх и низ */
+}
+.app-title {
+    text-align: center; /* Центрирование заголовка */
+    margin-bottom: 20px; /* Отступ снизу заголовка */
+    font-size: 28px; /* Размер шрифта */
+    color: #EDEFF0; /* Цвет текста */
+}
+/* Основные стили для страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #282c34; /* Темный фон */
+    color: #ffffff; /* Цвет текста */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стиль для верхушки */
+header {
+    width: 100%; /* Растянуть заголовок на всю ширину */
+    background-color: #3b4048; /* Цвет фона хедера */
+    padding: 20px; /* Отступы внутри хедера */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для создания глубины */
+}
+
+.header-container {
+    display: flex; /* Используем flex для выравнивания содержимого */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Выравниваем элементы по центру */
+}
+
+.header-title {
+    margin: 0; /* Убираем отступы у заголовка */
+    color: #61dafb; /* Цвет текста заголовка */
+    font-size: 24px; /* Размер шрифта заголовка */
+    text-align: center; /* Центрируем текст заголовка */
+}
+
+nav {
+    margin-left: auto; /* Перемещаем навигационное меню вправо */
+}
+
+nav ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем отступы */
+    display: flex; /* Используем flex для горизонтального выравнивания */
+    gap: 20px; /* Промежутки между пунктами меню */
+}
+
+nav a {
+    text-decoration: none; /* Убираем подчеркивание ссылок */
+    color: #ffffff; /* Цвет текста ссылок */
+    transition: color 0.3s; /* Плавный переход цвета ссылки */
+}
+
+nav a:hover {
+    color: #61dafb; /* Цвет ссылки при наведении */
+}
+/* Стили для основного контента */
+main {
+    width: 100%; /* Основной контейнер занимает всю ширину */
+    max-width: 900px; /* Максимальная ширина для контента */
+    margin: 20px auto; /* Центрируем содержимое */
+    padding: 20px;
+    background-color: #3b4048; /* Светло-серый фон для основного контейнера */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень для контейнера */
+}
+
+/* Другие стили остаются прежними... */
+h1 {
+    margin: 0; /* Убираем отступы у заголовка */
+    color: #61dafb; /* Цвет текста заголовка */
+    font-size: 24px; /* Размер шрифта заголовка */
+    text-align: center;
+}
